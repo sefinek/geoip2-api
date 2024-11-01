@@ -1,6 +1,6 @@
 {
   "name": "geoip2-api",
-  "version": "1.0.9",
+  "version": "1.0.8",
   "description": "This module enables you to retrieve the customer's geolocation using their IP address, utilizing data obtained from an official and high-speed API.",
   "keywords": [
     "geo-api",
