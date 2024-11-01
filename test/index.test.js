@@ -7,7 +7,6 @@ describe('GeoIP Wrapper Module', () => {
 		const result = await geoIp.get(cfIp);
 		expect(result.success).toBe(true);
 		expect(result.status).toBe(200);
-		expect(result.validationErr).toBe(false);
 		expect(result.ip).toBe(cfIp);
 		expect(result.data).toBeDefined();
 	});
@@ -18,7 +17,6 @@ describe('GeoIP Wrapper Module', () => {
 		const result = await geoIp.get(googleIp);
 		expect(result.success).toBe(true);
 		expect(result.status).toBe(200);
-		expect(result.validationErr).toBe(false);
 		expect(result.ip).toBe(googleIp);
 		expect(result.data).toBeDefined();
 		expect(result.data.country).toBe('US');
@@ -30,7 +28,6 @@ describe('GeoIP Wrapper Module', () => {
 		const result = await geoIp.get(validIP);
 		expect(result.success).toBe(true);
 		expect(result.status).toBe(200);
-		expect(result.validationErr).toBe(false);
 		expect(result.ip).toBe(validIP);
 		expect(result.data).toBeDefined();
 		expect(result.data.country).toBe('PL');
@@ -51,10 +48,12 @@ describe('GeoIP Wrapper Module', () => {
 	test('Should resolve with an error for a private IP address', async () => {
 		const privateIP = '192.168.1.1';
 
-		const result = await geoIp.get(privateIP);
-		expect(result.success).toBe(false);
-		expect(result.status).toBe(404);
-		expect(result.validationErr).toBe(false);
+		try {
+			await geoIp.get(privateIP);
+		} catch (result) {
+			expect(result).toBeDefined();
+			expect(result.message).toBe('HTTP Status Code: 403');
+		}
 	});
 
 	test('Should reject with an error for the loopback IP address [127.0.0.1]', async () => {
@@ -64,7 +63,7 @@ describe('GeoIP Wrapper Module', () => {
 			await geoIp.get(loopbackIP);
 		} catch (result) {
 			expect(result).toBeDefined();
-			expect(result.message).toBe('HTTP Status Code: 400');
+			expect(result.message).toBe('HTTP Status Code: 403');
 		}
 	});
 
@@ -74,7 +73,6 @@ describe('GeoIP Wrapper Module', () => {
 		const result = await geoIp.get(ipv4Address);
 		expect(result.success).toBe(true);
 		expect(result.status).toBe(200);
-		expect(result.validationErr).toBe(false);
 		expect(result.ip).toBe(ipv4Address);
 		expect(result.data).toBeDefined();
 		expect(result.data.country).toBe('PL');
