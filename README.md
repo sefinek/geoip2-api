@@ -2,10 +2,10 @@
     <h1>🗺️ GeoIP Lite 2: API Wrapper</h1>
     <a href="https://www.npmjs.com/package/geoip2-api">
         <img src="https://img.shields.io/npm/dt/geoip2-api?maxAge=3600" alt="The number of downloads">
-        <img src="https://img.shields.io/github/last-commit/sefinek24/geoip2-api" alt="Last commit">
-        <img src="https://img.shields.io/github/issues/sefinek24/geoip2-api" alt="Issues">
-        <img src="https://img.shields.io/github/commit-activity/w/sefinek24/geoip2-api" alt="Commit activity">
-        <img src="https://img.shields.io/github/languages/code-size/sefinek24/geoip2-api" alt="Code size">
+        <img src="https://img.shields.io/github/last-commit/sefinek/geoip2-api" alt="Last commit">
+        <img src="https://img.shields.io/github/issues/sefinek/geoip2-api" alt="Issues">
+        <img src="https://img.shields.io/github/commit-activity/w/sefinek/geoip2-api" alt="Commit activity">
+        <img src="https://img.shields.io/github/languages/code-size/sefinek/geoip2-api" alt="Code size">
     </a>
 </div>
 
@@ -15,7 +15,7 @@ This documentation provides information about the lightweight Node.js module des
 This module enables you to retrieve location information for a specified IP address and takes full advantage of native modules.
 The [official API](https://api.sefinek.net) is thoroughly optimized ⚡ and secure 🔐.
 
-> We use the [MaxMind database](https://www.maxmind.com) in the [geoip-lite2](https://github.com/sefinek24/geoip-lite2) module for [our API](https://api.sefinek.net/docs/v2).
+> We use the [MaxMind database](https://www.maxmind.com) in the [geoip-lite2](https://github.com/sefinek/geoip-lite2) module for [our API](https://api.sefinek.net/docs/v2).
 > Due to certain limitations, the database is not updated daily (and never will be) by the module's developer. Updates are issued periodically.
 
 
@@ -75,7 +75,7 @@ If you want to get the client's geolocation, instead of providing an IP, use `/a
 
 
 ## 💙 Support
-For any questions or issues related to the script, please visit the [GitHub repository](https://github.com/sefinek24/geoip2-api) for the latest updates and support.
+For any questions or issues related to the script, please visit the [GitHub repository](https://github.com/sefinek/geoip2-api) for the latest updates and support.
 
 If you like this module, please **star** ⭐ the repository.
 
@@ -85,4 +85,4 @@ This GeoIP API client script is provided under the MIT License. See the [LICENSE
 
 Copyright 2023-2024 © by [Sefinek](https://sefinek.net). All Rights Reserved.
 
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fsefinek24%2Fgeoip2-api.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fsefinek24%2Fgeoip2-api?ref=badge_large)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fsefinek%2Fgeoip2-api.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fsefinek%2Fgeoip2-api?ref=badge_large)
