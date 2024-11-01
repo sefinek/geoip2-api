@@ -1,4 +1,4 @@
-const https = require('https');
+const https = require('node:https');
 const { name, version, devDependencies } = require('./package.json');
 
 const headers = {
