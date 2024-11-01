@@ -1,6 +1,6 @@
 {
   "name": "geoip2-api",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "This module enables you to retrieve the customer's geolocation using their IP address, utilizing data obtained from an official and high-speed API.",
   "keywords": [
     "geo-api",
@@ -12,13 +12,13 @@
     "geoip-wrapper",
     "maxmind-wrapper"
   ],
-  "homepage": "https://github.com/sefinek24/geoip2-api#readme",
+  "homepage": "https://github.com/sefinek/geoip2-api#readme",
   "bugs": {
-    "url": "https://github.com/sefinek24/geoip2-api/issues"
+    "url": "https://github.com/sefinek/geoip2-api/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sefinek24/geoip2-api.git"
+    "url": "git+https://github.com/sefinek/geoip2-api.git"
   },
   "license": "MIT",
   "author": "Sefinek <contact@sefinek.net> (https://sefinek.net)",
@@ -29,8 +29,8 @@
     "up": "ncu -u && npm install && npm update && npm audit fix"
   },
   "devDependencies": {
-    "@eslint/js": "^9.9.1",
-    "globals": "^15.9.0",
+    "@eslint/js": "^9.13.0",
+    "globals": "^15.11.0",
     "jest": "^29.7.0"
   }
 }
