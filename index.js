@@ -12,31 +12,38 @@ const headers = {
 
 const timeout = 25000;
 
-const makeRequest = ip => new Promise((resolve, reject) => {
-	if (!ip) return reject(new Error('IP address is required.'));
+const get = async ip => {
+	if (!ip || typeof ip !== 'string') throw new Error('A valid IP address is required.');
 
-	const req = https.get(`https://api.sefinek.net/api/v2/geoip/${ip}`, { headers, timeout }, res => {
-		const { statusCode } = res;
-		if (statusCode !== 200 && statusCode !== 400) {
-			return reject(new Error(`HTTP Status Code: ${statusCode}`));
-		}
-
-		let data = '';
-		res.on('data', chunk => data += chunk);
-		res.on('end', () => {
-			try {
-				resolve(JSON.parse(data));
-			} catch (err) {
-				reject(err);
+	return new Promise((resolve, reject) => {
+		const req = https.get(`https://api.sefinek.net/api/v2/geoip/${ip}`, { headers, timeout }, res => {
+			const { statusCode } = res;
+			if (statusCode !== 200 && statusCode !== 400) {
+				req.destroy();
+				return reject(new Error(`HTTP Status Code: ${statusCode}`));
 			}
+
+			let data = '';
+			res.on('data', chunk => data += chunk);
+			res.on('end', () => {
+				try {
+					resolve(JSON.parse(data));
+				} catch (err) {
+					reject(err);
+				}
+			});
+		});
+
+		req.on('error', err => {
+			req.destroy();
+			reject(err);
+		});
+
+		req.on('timeout', () => {
+			req.destroy();
+			reject(new Error(`Request timed out after ${timeout} ms.`));
 		});
 	});
+};
 
-	req.on('error', reject);
-	req.on('timeout', () => {
-		req.destroy();
-		reject(new Error(`Request timed out after ${timeout} ms.`));
-	});
-});
-
-module.exports = { get: makeRequest, version };
+module.exports = { get, version };
