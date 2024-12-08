@@ -44,25 +44,25 @@ const geoIp = require('geoip2-api');
 
 
 ## ✨ Output
-> GET https://api.sefinek.net/api/v2/geoip/185.244.214.231
+> GET https://api.sefinek.net/api/v2/geoip/185.21.84.216
 
 ```json
 {
   "success": true,
   "status": 200,
-  "validationErr": false,
-  "ip": "185.244.214.231",
+  "ip": "185.21.84.216",
   "data": {
-    "range": [3119830528, 3119830783],
+    "range": [3105182720, 3105183743],
     "country": "PL",
-    "region": "14",
+    "region": "30",
     "eu": "1",
     "timezone": "Europe/Warsaw",
-    "city": "Warsaw",
-    "ll": [52.1574, 21.0126],
+    "city": "Piła",
+    "ll": [53.1492, 16.7461],
     "metro": 0,
     "area": 20
-  }
+  },
+  "type": "unicast"
 }
 ```
 
