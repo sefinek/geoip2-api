@@ -27,7 +27,7 @@ declare module 'geoip2-api' {
      * const geoIp = require('geoip2-api');
      *
      * (async () => {
-     *     const data = await geoIp.get('185.244.214.231');
+     *     const data = await geoIp.get('185.21.84.216');
      *     console.log(data);
      * })();
      * @returns {Promise<ApiResponse>} - A promise that resolves to the location data or rejects with an error.
