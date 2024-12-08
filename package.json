@@ -11,8 +11,7 @@
     "geoip data",
     "geoip wrapper",
     "geoip",
-    "ip",
-    "maxmind-wrapper"
+    "ip"
   ],
   "homepage": "https://github.com/sefinek/geoip2-api#readme",
   "bugs": {
