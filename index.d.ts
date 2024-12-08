@@ -14,10 +14,9 @@ declare module 'geoip2-api' {
     export interface ApiResponse {
         success: boolean;
         status: number;
-        validationErr: boolean;
-        message?: string;
         ip: string;
         data: GeoIpData;
+        type: string;
     }
 
     /**
