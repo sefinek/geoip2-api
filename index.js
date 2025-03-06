@@ -18,7 +18,7 @@ const get = async ip => {
 	return new Promise((resolve, reject) => {
 		const req = https.get(`https://api.sefinek.net/api/v2/geoip/${ip}`, { headers, timeout }, res => {
 			const { statusCode } = res;
-			if (statusCode !== 200 && statusCode !== 400) {
+			if (statusCode < 200 || statusCode >= 300) {
 				req.destroy();
 				return reject(new Error(`HTTP Status Code: ${statusCode}`));
 			}
