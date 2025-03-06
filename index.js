@@ -13,7 +13,7 @@ const headers = {
 const timeout = 25000;
 
 const get = async ip => {
-	if (!ip || typeof ip !== 'string') throw new Error('A valid IP address is required.');
+	if (!ip || typeof ip !== 'string') throw new Error('A valid IP address is required');
 
 	return new Promise((resolve, reject) => {
 		const req = https.get(`https://api.sefinek.net/api/v2/geoip/${ip}`, { headers, timeout }, res => {
