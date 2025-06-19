@@ -1,5 +1,5 @@
-const https = require('https');
-const { name, version, homepage, devDependencies } = require('../package.json');
+const https = require('node:https');
+const { name, version, devDependencies } = require('./package.json');
 
 const headers = {
 	'User-Agent': `${name}/${version} (+https://github.com/sefinek/geoip2-api)${process.env.JEST_WORKER_ID ? ` jest/${devDependencies.jest.replace(/^[^0-9]*/, '')}` : ''}`,
@@ -16,11 +16,11 @@ const get = async ip => {
 	if (!ip || typeof ip !== 'string') throw new Error('A valid IP address is required');
 
 	return new Promise((resolve, reject) => {
-		const req = https.get(ip, { headers, timeout }, res => {
+		const req = https.get(`https://api.sefinek.net/api/v2/geoip/${ip}`, { headers, timeout }, res => {
 			const { statusCode } = res;
-			if ((statusCode < 200 || statusCode >= 300) && statusCode !== 400) {
+			if (statusCode < 200 || statusCode >= 300) {
 				req.destroy();
-				return reject(new Error(`Unexpected HTTP Status Code: ${statusCode || 'unknown'}`));
+				return reject(new Error(`HTTP Status Code: ${statusCode}`));
 			}
 
 			let data = '';
@@ -41,7 +41,7 @@ const get = async ip => {
 
 		req.on('timeout', () => {
 			req.destroy();
-			reject(new Error(`Request timed out after ${timeout} ms`));
+			reject(new Error(`Request timed out after ${timeout} ms.`));
 		});
 	});
 };
