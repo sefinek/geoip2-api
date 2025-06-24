@@ -1,6 +1,6 @@
 {
   "name": "geoip2-api",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "This module allows obtaining the client's geolocation using their IP address, leveraging data retrieved from a fast API.",
   "keywords": [
     "geo api",
@@ -26,6 +26,9 @@
   "type": "commonjs",
   "main": "index.js",
   "types": "index.d.ts",
+  "directories": {
+    "test": "test"
+  },
   "scripts": {
     "test": "jest test",
     "up": "ncu -u && npm install && npm update && npm audit fix"
