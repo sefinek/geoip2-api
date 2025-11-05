@@ -10,11 +10,16 @@
 </div>
 
 
+## ⚠️ Warning
+This library is no longer supported. I recommend migrating to [geoip-lite2](https://www.npmjs.com/package/geoip-lite2). Please make sure to read the README of that module.
+
+
 ## 📝 Information
 This documentation covers a lightweight Node.js module designed for interacting with a geolocation data API.
 The module enables efficient retrieval of location details for specific IP addresses, utilizing native modules for optimal performance.
 
 > We utilize the [MaxMind database](https://www.maxmind.com) via the [geoip-lite2](https://github.com/sefinek/geoip-lite2) module for [our API](https://api.sefinek.net/docs/v2).
+
 
 ## 💻 Locally
 There is an alternative to this module that allows for local geolocation retrieval based on a specific IP address.
@@ -80,4 +85,4 @@ If you like this module, please **star** ⭐ the repository.
 ## 🔑 MIT License
 This GeoIP API client script is provided under the MIT License. See the [LICENSE](LICENSE) file for more details.
 
-Copyright 2023-2024 © by [Sefinek](https://sefinek.net). All Rights Reserved.
+Copyright 2023-2025 © by [Sefinek](https://sefinek.net). All Rights Reserved.
